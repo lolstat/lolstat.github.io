@@ -237,21 +237,11 @@ zero=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: values1
+                    data: values1 + values2
                 },
-                {
-                    label: "Unknown",
-                    fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: values2
-                }
             ]
         };
-        chart_friends = new Chart(ctx_friends).Line(data, {
+        chart_friends = new Chart(ctx_friends).Bar(data, {
             scaleShowGridLines : true,
             scaleGridLineColor : "rgba(0,0,0,.05)",
             scaleGridLineWidth : 1,
@@ -267,6 +257,10 @@ zero=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             datasetStrokeWidth : 2,
             datasetFill : true,
         });
+        for (var i in values1)
+        {
+            chart_friends.datasets[0].bars[i].fillColor = "green";
+        }
     }
     
     window.addEventListener('resize', resizeCanvas, false);
